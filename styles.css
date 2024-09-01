@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Cute+Font&display=swap");
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: url("pexels-joy-singh-1008768-2764942.jpg"); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#message {
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border-radius: 10px;
+
+  font-family: "Cute Font", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+
+  
+}
+
+.hidden {
+  display: none;
+}
