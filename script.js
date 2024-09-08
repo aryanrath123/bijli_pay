@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Function to trigger the payment page
     function openPaymentPage() {
         var options = {
             key: "rzp_test_EwlhHS5sAjsq9S", // Replace with your Razorpay API key
@@ -31,5 +32,14 @@ document.addEventListener('DOMContentLoaded', function() {
         paymentObject.open();
     }
 
-    openPaymentPage(); // Automatically open payment page when script loads
+    // Check if payment was completed
+    if (sessionStorage.getItem('paymentCompleted') === 'true') {
+        sessionStorage.removeItem('paymentCompleted'); // Clear status
+        console.log('Payment was completed.');
+        // Add additional handling here if needed
+    } else {
+        document.getElementById('message').classList.remove('hidden');
+        console.log('Payment page is being opened.');
+        openPaymentPage();
+    }
 });
