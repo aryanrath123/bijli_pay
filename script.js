@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
             handler: function (response) {
                 alert('Payment Successful: ' + response.razorpay_payment_id);
                 sessionStorage.setItem('paymentCompleted', 'true'); // Mark payment as completed
+
+                // Redirect to the Streamlit app with payment ID
+                window.location.href = "http://localhost:8501/?payment_id=" + response.razorpay_payment_id;
             },
             prefill: {
                 name: "Aryan Rath",
@@ -32,10 +35,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Check if payment was completed
     if (sessionStorage.getItem('paymentCompleted') === 'true') {
         sessionStorage.removeItem('paymentCompleted'); // Clear status
+        console.log('Payment was completed.');
+        // Add additional handling here if needed
     } else {
         document.getElementById('message').classList.remove('hidden');
+        console.log('Payment page is being opened.');
+        openPaymentPage();
     }
-
-    // Trigger the payment page on load
-    openPaymentPage();
 });
