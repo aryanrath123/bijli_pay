@@ -11,10 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
             handler: function (response) {
                 alert('Payment Successful: ' + response.razorpay_payment_id);
                 sessionStorage.setItem('paymentCompleted', 'true'); // Mark payment as completed
-
-                // Redirect to the Streamlit app with payment ID
-                window.location.href = "http://localhost:8501/?payment_id=" + response.razorpay_payment_id;
+            
+                // Redirect to the specific Streamlit page with payment ID
+                window.location.href = "http://localhost:8501/Smart_Meter_Access?payment_id=" + response.razorpay_payment_id;
             },
+            
             prefill: {
                 name: "Aryan Rath",
                 email: "aryan.rath@example.com",
