@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function openPaymentPage() {
         var options = {
             key: "rzp_test_EwlhHS5sAjsq9S", // Replace with your Razorpay API key
-            amount: 199900 , // Amount in paise
+            amount: 199900, // Amount in paise (₹1999 = 199900 paise)
             currency: "INR",
             name: "BiJli Bachao",
             description: "Test Transaction",
@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
         };
 
+        console.log('Payment options:', options); // Log the options object to ensure correct values
         var paymentObject = new Razorpay(options);
         paymentObject.open();
     }
